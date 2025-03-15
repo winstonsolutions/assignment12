@@ -1,25 +1,27 @@
 FROM node:18
 
-# 设置工作目录
+# Set working directory
 WORKDIR /zhao_wentao_ui_garden
 
-# 复制package.json和.npmrc
+# Copy package.json and .npmrc
 COPY package*.json .npmrc ./
 
-# 设置NPM_TOKEN环境变量
+# Set NPM_TOKEN environment variable
 ARG NPM_TOKEN
 ENV NPM_TOKEN=$NPM_TOKEN
 
+# Remove node_modules and package-lock.json if they exist
+RUN rm -rf node_modules package-lock.json
 
-# 清理并重新安装依赖
-RUN rm -rf package-lock.json node_modules \
-    && npm install \
-    && npm rebuild rollup \
-    && npm install @rollup/rollup-linux-x64-gnu
+# Reinstall dependencies
+RUN npm install
 
-# 复制其余文件
+# Additional steps if you encounter issues. Often not needed.
+# RUN npm rebuild rollup
+# RUN npm install @rollup/rollup-linux-x64-gnu
+
+# Copy the rest of the source code
 COPY . .
-
 
 # Expose the port the app runs on
 EXPOSE 3000

@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "prepare": "husky",
     "format": "prettier --write .",
-    "test": "jest"
+    "test": "jest --config jest.config.cjs"
   },
   "dependencies": {
     "@winstonsolutions/my-component-library": "^1.1.9",
@@ -22,6 +22,7 @@
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-react": "^7.26.3",
     "@eslint/js": "^9.19.0",
+    "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
@@ -42,5 +43,12 @@
     "lint-staged": "^15.5.0",
     "prettier": "^3.5.3",
     "vite": "^6.1.0"
+  },
+  "eslintConfig": {
+    "ignorePatterns": [
+      "*.config.cjs",
+      ".eslintrc.cjs",
+      "src/App.test.jsx"
+    ]
   }
 }
