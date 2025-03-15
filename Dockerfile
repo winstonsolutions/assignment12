@@ -3,28 +3,25 @@ FROM node:18
 # Set working directory
 WORKDIR /zhao_wentao_ui_garden
 
-# Copy package.json and .npmrc
-COPY package*.json .npmrc ./
+# Copy package.json and package-lock.json (if available)
+COPY package*.json ./
 
-# Set NPM_TOKEN environment variable
-ARG NPM_TOKEN
-ENV NPM_TOKEN=$NPM_TOKEN
+# Set environment variables before npm install
+ENV ROLLUP_SKIP_NODEJS_NATIVE=1
+ENV NODE_ENV=development
 
-# Remove node_modules and package-lock.json if they exist
-RUN rm -rf node_modules package-lock.json
-
-# Reinstall dependencies
-RUN npm install
-
-# Additional steps if you encounter issues. Often not needed.
-# RUN npm rebuild rollup
-# RUN npm install @rollup/rollup-linux-x64-gnu
+# Create .npmrc and install dependencies
+ARG GITHUB_TOKEN
+RUN echo "@winstonsolutions:registry=https://npm.pkg.github.com/" > .npmrc && \
+    echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" >> .npmrc && \
+    npm cache clean --force && \
+    npm install
 
 # Copy the rest of the source code
 COPY . .
 
 # Expose the port the app runs on
-EXPOSE 3000
+EXPOSE 8018
 
-# Command to run the application
-CMD ["npm", "run", "dev"]
+# Start development server
+CMD ["npm", "run", "dev", "--", "--port", "8018"]
