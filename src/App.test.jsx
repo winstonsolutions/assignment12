@@ -2,12 +2,52 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-// Simple mock of the component library, only mocking the Button component
+// Mock of the component library with all required components
 jest.mock('@winstonsolutions/my-component-library', () => ({
   Button: ({ label, disabled }) => (
     <button data-testid="mock-button" disabled={disabled}>
       {label}
     </button>
+  ),
+  Card: ({ title, content }) => (
+    <div data-testid="mock-card">
+      <h3>{title}</h3>
+      <p>{content}</p>
+    </div>
+  ),
+  Label: ({ text, disabled }) => (
+    <label data-testid="mock-label" style={{ opacity: disabled ? 0.5 : 1 }}>
+      {text}
+    </label>
+  ),
+  Dropdown: ({ options }) => (
+    <select data-testid="mock-dropdown">
+      {options.map((option, index) => (
+        <option key={index} value={option}>
+          {option}
+        </option>
+      ))}
+    </select>
+  ),
+  Table: ({ data, columns, disabled }) => (
+    <table data-testid="mock-table" style={{ opacity: disabled ? 0.5 : 1 }}>
+      <thead>
+        <tr>
+          {columns.map((column, index) => (
+            <th key={index}>{column}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((row, rowIndex) => (
+          <tr key={rowIndex}>
+            {columns.map((column, colIndex) => (
+              <td key={colIndex}>{row[column]}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
   ),
 }));
 
