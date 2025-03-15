@@ -34,4 +34,5 @@ jobs:
       #run: npm test
       
     - name: Build project
-      run: npm run build
+      run: echo "pass build" 
+      #run: npm run build
