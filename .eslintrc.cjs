@@ -14,7 +14,8 @@ export default {
         jsx: true
       },
       ecmaVersion: 'latest',
-      sourceType: 'module'
+      sourceType: 'module',
+      ecmaVersion: 2020
     },
     plugins: [
       'react'

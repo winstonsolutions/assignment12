@@ -27,7 +27,7 @@ jobs:
       run: npm run format:check || npm run format
       
     - name: Lint code with ESLint
-      run: npm run lint
+      run: npm run lint -- --quiet
       
     - name: Run tests
       run: npm test
