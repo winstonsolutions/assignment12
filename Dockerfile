@@ -1,7 +1,7 @@
 FROM node:18
 
 # Set working directory
-WORKDIR /zhao_wentao_ui_garden
+WORKDIR /zhao_wentao_ui_garden_build_checks
 
 # Copy package.json and package-lock.json (if available)
 COPY package*.json ./
