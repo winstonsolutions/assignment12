@@ -13,7 +13,7 @@ function App() {
   const data = [
     { name: 'Alice', age: 25, email: 'alice@example.com' },
     { name: 'Bob', age: 30, email: 'bob@example.com' },
-    { name: 'Charlie', age: 29, email: 'charlie@example.com' },
+    { name: 'Charlie', age: 30, email: 'charlie@example.com' },
   ];
 
   return (
