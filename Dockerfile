@@ -1,7 +1,7 @@
 FROM node:18
 
 # Set working directory
-WORKDIR /zhao_wentao_ui_garden_build_checks
+WORKDIR /zhao_wentao_final_site
 
 # Copy package.json and package-lock.json (if available)
 COPY package*.json ./
@@ -21,7 +21,7 @@ RUN echo "@winstonsolutions:registry=https://npm.pkg.github.com/" > .npmrc && \
 COPY . .
 
 # Expose the port the app runs on
-EXPOSE 8018
+EXPOSE 5575
 
 # Start development server
 CMD ["npm", "run", "dev", "--", "--port", "8018"]
