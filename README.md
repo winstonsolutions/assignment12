@@ -72,7 +72,7 @@ This project is also containerized using Docker. To build and run the Docker con
 1. Build the Docker image using the following command:
 
    ```bash
-   docker build --build-arg NPM_TOKEN=your_npm_token -t zhao_wentao_coding_assignment12 .
+   docker build --build-arg NPM_TOKEN=your_npm_token -t zhao_wentao_coding_assignment14 .
    ```
 
    Replace `your_npm_token` with your actual npm token for authentication.
@@ -80,10 +80,10 @@ This project is also containerized using Docker. To build and run the Docker con
 2. Once the image is built, you can run the Docker container with the following command:
 
    ```bash
-   docker run -d -p 8083:3000 --name zhao_wentao_coding_assignment12 zhao_wentao_coding_assignment12
+   docker run -d --name wentao_zhao_coding_assignment14 -p 5575:5575 wentao_a14image
    ```
 
-   This will start the container in detached mode, exposing port `8083` on your local machine, which maps to port `3000` inside the container.
+   This will start the container in detached mode, exposing port `5575` on your local machine, which maps to port `5575` inside the container.
 
 ## License
 

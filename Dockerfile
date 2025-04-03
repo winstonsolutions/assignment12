@@ -24,4 +24,4 @@ COPY . .
 EXPOSE 5575
 
 # Start development server
-CMD ["npm", "run", "dev", "--", "--port", "8018"]
+CMD ["npm", "run", "dev", "--", "--port", "5575"]
