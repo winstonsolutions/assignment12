@@ -81,6 +81,25 @@ function App() {
                 </div>
               }
             />
+            <Card
+              title="Storybook"
+              content={
+                <div>
+                  <p className="mb-3 leading-relaxed">
+                    Storybook is a development environment for UI components. It
+                    allows you to browse a component library, view the different
+                    states of each component, and interactively develop and test
+                    components.
+                  </p>
+                  <a
+                    href="http://localhost:8083/"
+                    className="text-blue-600 hover:text-blue-800 font-medium hover:underline inline-flex items-center"
+                  >
+                    View Storybook →
+                  </a>
+                </div>
+              }
+            />
           </div>
         </section>
 
